@@ -1,0 +1,25 @@
+[
+  [
+    {
+      "title": "Design Scrum",
+      "duration": "45 mins",
+      "time": "11:00 am",
+      "meetingId": 4566767889,
+      "color": "bg-red-200"
+    },
+    {
+      "title": "Q2 Planning",
+      "duration": "60 mins",
+      "time": "1:20 pm",
+      "meetingId": 4566767889,
+      "color": "bg-yellow-200"
+    },
+    {
+      "title": "Coldplay Concert",
+      "duration": "90 mins",
+      "time": "9:30 am",
+      "meetingId": 4566767889,
+      "color": "bg-green-200"
+    }
+  ]
+]
