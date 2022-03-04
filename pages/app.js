@@ -1,15 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Box from '../components/box'
 import NewEvent from '../components/newEvent'
 import Timeline from '../components/timeline/timeline'
 import UpcomingEventBox from '../components/upcomingEventBox'
 
 const App = () => {
+  const [showNewEvent, setShowNewEvent] = useState(false);
   return (
     <div>
       <div></div>
-      <NewEvent />
-      {/* <div className='fixed h-80vh w-screen bottom-0'>
+      {showNewEvent ? <NewEvent /> : <></>}
+      <div className='fixed h-80vh w-screen bottom-0'>
         <div className='rounded-t-lg flex flex-col bg-white'>
           <h2 className='mt-8 font-serif ml-3 text-xl'>Upcoming Events (3)</h2>
           <div className='flex flex-row overflow-x-scroll'>
@@ -23,8 +24,12 @@ const App = () => {
           </div>
           <Timeline />
         </div>
-      </div> */}
-      <button className='bg-red-400 w-12 h-12 rounded-full text-3xl fixed right-4 bottom-4 text-white'>+</button>
+      </div>
+      <button
+        onClick={() => { setShowNewEvent(!showNewEvent) }}
+        className='bg-red-400 w-12 h-12 rounded-full text-3xl fixed right-4 bottom-4 text-white'>
+        +
+      </button>
     </div>
   )
 }
