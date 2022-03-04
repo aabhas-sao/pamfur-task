@@ -22,6 +22,7 @@ const App = () => {
           <Timeline />
         </div>
       </div>
+      <button className='bg-red-400 w-12 h-12 rounded-full text-3xl fixed right-4 bottom-4 text-white'>+</button>
     </div>
   )
 }
