@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 import calendarImage from '../public/main.png'
 
@@ -20,7 +21,7 @@ const Home = () => {
           Upcoming Events, Scheduling Meetings & Creating New Event!</p>
 
         <div className='mt-8'>
-          <button>-&gt;</button>
+          <Link className='' href={'app'}>-&gt;</Link>
         </div>
       </div>
 
