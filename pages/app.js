@@ -7,6 +7,7 @@ import Timeline from '../components/timeline/timeline'
 import UpcomingEventBox from '../components/upcomingEventBox'
 import { iconSize } from '../constants'
 import weekData from '../data/weekDays.json'
+import CircleAvatorWrapper from '../components/ui/circleAvatarWrapper'
 
 const App = () => {
   const [showNewEvent, setShowNewEvent] = useState(false);
@@ -51,14 +52,11 @@ const App = () => {
             <UpcomingEventBox title={"Design Scrum"} time={"11: 45 AM"} duration={"45 min"} color="bg-red-200" />
             <UpcomingEventBox title={"Q2 Planning"} time={"11: 45 AM"} duration={"45 min"} color="bg-yellow-200" />
             <UpcomingEventBox title={"Coldplay Concert"} time={"11: 45 AM"} duration={"45 min"} color="bg-green-200" />
-            <Box title={"Design Scrum"} time={"11: 45 AM"} fixed={true} duration={"45 min"} color="bg-red-200" />
-            <Box title={"Design Scrum"} time={"11: 45 AM"} fixed={true} duration={"45 min"} color="bg-yellow-200" />
-            <Box title={"Design Scrum"} time={"11: 45 AM"} fixed={true} duration={"45 min"} color="bg-green-200" />
-            <Box title={"Design Scrum"} time={"11: 45 AM"} fixed={true} duration={"45 min"} color="bg-yellow-200" />
           </div>
           <Timeline />
         </div>
       </div>
+
       <button
         onClick={() => { setShowNewEvent(!showNewEvent) }}
         className='bg-red-400 w-12 h-12 rounded-full text-3xl fixed right-4 bottom-4 text-white'>
