@@ -1,8 +1,10 @@
+import { ArrowRightIcon } from '@heroicons/react/outline'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { iconSize } from '../constants'
 import calendarImage from '../public/main.png'
-
+import ellipseImage from '../public/ellipse.png'
 
 const Home = () => {
   return (
@@ -16,12 +18,15 @@ const Home = () => {
       </div>
       <div className='bg-white rounded-md bottom-0 p-3'>
         <h2 className='text-4xl'>Hi Aman, </h2>
-        <p className='mt-2 text-lg'>
+        <p className='mt-2 mb-16 text-lg'>
           Welcome to your daily event calendar. Be more engaging & personalised than ever before. We’ll help you in Tracking
           Upcoming Events, Scheduling Meetings & Creating New Event!</p>
 
-        <div className='mt-8'>
-          <Link className='' href={'app'}>-&gt;</Link>
+        <div className='absolute right-0 -bottom-2'>
+          <Image src={ellipseImage} layout='fixed' height={100} width='100' className='absolute' alt='ellipse red background' />
+        </div>
+        <div className='mt-8 ml-auto bottom-0 right-0 z-50 absolute text-white'>
+          <Link href={'app'}><ArrowRightIcon width={iconSize * 2} height={iconSize * 2} /></Link>
         </div>
       </div>
 
