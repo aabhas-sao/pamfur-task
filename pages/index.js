@@ -12,7 +12,7 @@ export default function Index() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main id="stage" className={styles.main}>
         <Home />
       </main>
 

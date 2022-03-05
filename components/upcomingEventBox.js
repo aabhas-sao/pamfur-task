@@ -1,5 +1,5 @@
 import React from 'react'
-import Box from './box'
+import Box from './ui/box'
 
 const UpcomingEventBox = ({ title, color, time, duration }) => {
   return (
