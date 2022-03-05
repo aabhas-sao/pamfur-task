@@ -1,14 +1,25 @@
+import { ChevronLeftIcon } from '@heroicons/react/outline'
 import React, { useState } from 'react'
+import Calendar from 'react-calendar'
 import Box from '../components/box'
 import NewEvent from '../components/newEvent'
 import Timeline from '../components/timeline/timeline'
 import UpcomingEventBox from '../components/upcomingEventBox'
+import { iconSize } from '../constants'
+// import '../node_modules/react-calendar/dist/Calendar.css'
 
 const App = () => {
   const [showNewEvent, setShowNewEvent] = useState(false);
   return (
-    <div>
-      <div></div>
+    <div className='h-screen'>
+      <div>
+        <div>
+          <ChevronLeftIcon height={iconSize} width={iconSize} />
+        </div>
+      </div>
+      <div className=' flex justify-center bg-gray-800'>
+        <Calendar view='month' showDoubleView={true} />
+      </div>
       {showNewEvent ? <NewEvent /> : <></>}
       <div className='fixed h-80vh w-screen bottom-0'>
         <div className='rounded-t-lg flex flex-col bg-white'>

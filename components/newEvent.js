@@ -23,7 +23,7 @@ const uiData = [
 
 const NewEvent = () => {
   return (
-    <div className='bg-white'>
+    <div className='bg-white w-screen h-3/5 fixed bottom-0 z-10 rounded-t-2xl'>
       <div className='mt-5 flex flex-row'>
         <XIcon height={iconSize * 1.3} width={iconSize * 1.3} />
         <h2 className='text-xl ml-3'> New Event</h2>
