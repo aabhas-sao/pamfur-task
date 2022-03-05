@@ -1,4 +1,4 @@
-import { ChevronLeftIcon, MinusIcon } from '@heroicons/react/outline'
+import { ChevronDownIcon, ChevronLeftIcon, ChevronUpIcon, MinusIcon } from '@heroicons/react/outline'
 import React, { useState } from 'react'
 import Calendar from 'react-calendar'
 import Box from '../components/ui/box'
@@ -43,17 +43,18 @@ const App = () => {
       }
 
 
-      {showNewEvent ? <NewEvent /> : <></>}
+      {showNewEvent ? <NewEvent showNewEvent={showNewEvent} setShowNewEvent={setShowNewEvent} /> : <></>}
       <div className='fixed h-80vh w-screen bottom-0'>
         <div className='rounded-t-lg flex flex-col bg-white'>
-          <span className=' mt-2 mx-auto h-1 w-24 bg-gray-900'>  </span>
+          <span onClick={() => { setShowCalendar(!showCalendar) }} className='mt-2 mx-auto'>{showCalendar ? <ChevronUpIcon width={iconSize} height={iconSize} /> : <ChevronDownIcon width={iconSize} height={iconSize} />} </span>
           <h2 className='mt-8 font-serif ml-3 text-xl'>Upcoming Events (3)</h2>
+
           <div className='flex flex-row overflow-x-scroll'>
             <UpcomingEventBox title={"Design Scrum"} time={"11: 45 AM"} duration={"45 min"} color="bg-red-200" />
             <UpcomingEventBox title={"Q2 Planning"} time={"11: 45 AM"} duration={"45 min"} color="bg-yellow-200" />
             <UpcomingEventBox title={"Coldplay Concert"} time={"11: 45 AM"} duration={"45 min"} color="bg-green-200" />
           </div>
-          <Timeline />
+          {showCalendar ? <></> : <Timeline />}
         </div>
       </div>
 

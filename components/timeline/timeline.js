@@ -11,7 +11,7 @@ const Timeline = () => {
       <h2 className='ml-6'><span className='font-bold'>Today</span>, Thursday 21</h2>
       {
         today.map((event, id) => (
-          <div key={id} className='flex flex-row items-center px-6 py-4'>
+          <div key={id} className='flex flex-row items-center px-6 py-0'>
             <TimeHeading time={event.time} duration={event.duration} />
 
             <div className='flex-1'>

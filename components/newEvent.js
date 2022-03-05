@@ -21,14 +21,17 @@ const uiData = [
   }
 ]
 
-const NewEvent = () => {
+const NewEvent = ({ showNewEvent, setShowNewEvent }) => {
   return (
     <div className='bg-white w-screen h-3/5 fixed bottom-0 z-10 rounded-t-2xl'>
-      <div className='mt-5 flex flex-row'>
-        <XIcon height={iconSize * 1.3} width={iconSize * 1.3} />
+      <div className='mt-5 flex flex-row px-2'>
+        <XIcon onClick={() => setShowNewEvent(!showNewEvent)} height={iconSize * 1.3} width={iconSize * 1.3} />
         <h2 className='text-xl ml-3'> New Event</h2>
       </div>
-      <input placeholder='add title' />
+      <div className='flex flex-row justify-center items-center px-5 border-2 mx-2 bg-gray-200 rounded-3xl'>
+        <input placeholder='add title' />
+        <div className=' px-2 h-6 w-6 bg-green-400 rounded-full'></div>
+      </div>
 
       <div className='py-4 px-3 flex flex-row justify-between '>
         <div className='w-48 flex-1 flex flex-col'>
