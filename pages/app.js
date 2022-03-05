@@ -8,6 +8,8 @@ import UpcomingEventBox from '../components/upcomingEventBox'
 import { iconSize } from '../constants'
 import weekData from '../data/weekDays.json'
 import CircleAvatorWrapper from '../components/ui/circleAvatarWrapper'
+import Image from 'next/image'
+import profilePic from '../public/profile.jpeg';
 
 const App = () => {
   const [showNewEvent, setShowNewEvent] = useState(false);
@@ -24,7 +26,9 @@ const App = () => {
             September</p>
 
         </div>
-        <div className='bg-gray-300 w-8 h-8 rounded-full'></div>
+        <div className='bg-gray-300 w-10 h-10 rounded-full'>
+          <Image className='rounded-full' src={profilePic} layout={'responsive'} width={100} height={100} alt='profile pic' />
+        </div>
       </div>
       {showCalendar
         ? <div className='mt-6 flex justify-center bg-gray-800'>
@@ -33,8 +37,8 @@ const App = () => {
         : <div className='w-screen mt-3 flex justify-evenly bg-gray-800 font-serif'>
           {
             weekData.map((day, id) => (
-              <div key={id} className='flex flex-col text-white items-center justify-center'>
-                {(day.date == 21)
+              <div key={id} className='flex flex-col text-white items-center justify-center text-center'>
+                {(day.date == new Date().getDate())
                   ? <div className='highlight'><p>{day.day}</p>
                     <p>{day.date}</p></div>
                   : <><p>{day.day}</p>
