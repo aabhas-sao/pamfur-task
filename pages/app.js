@@ -54,9 +54,9 @@ const App = () => {
           <h2 className='mt-8 font-serif ml-3 text-xl'>Upcoming Events (3)</h2>
 
           <div className='flex flex-row overflow-x-scroll'>
-            <UpcomingEventBox title={"Design Scrum"} time={"11: 45 AM"} duration={"45 min"} color="bg-red-200" />
-            <UpcomingEventBox title={"Q2 Planning"} time={"11: 45 AM"} duration={"45 min"} color="bg-yellow-200" />
-            <UpcomingEventBox title={"Coldplay Concert"} time={"11: 45 AM"} duration={"45 min"} color="bg-green-200" />
+            <UpcomingEventBox title={"Design Scrum"} time={"11: 45 AM"} duration={"45 min"} color="bg-light-red" accent={"bg-accent-red"} />
+            <UpcomingEventBox title={"Q2 Planning"} time={"11: 45 AM"} duration={"45 min"} color="bg-light-yellow" accent={"bg-accent-yellow"} />
+            <UpcomingEventBox title={"Coldplay Concert"} time={"11: 45 AM"} duration={"45 min"} color="bg-light-green" accent={"bg-accent-green"} />
           </div>
           {showCalendar ? <></> : <Timeline />}
         </div>

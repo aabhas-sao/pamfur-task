@@ -1,6 +1,5 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
 
 html,
 body {
@@ -9,6 +8,8 @@ body {
   background-color: #162b32;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+
+@tailwind utilities;
 
 a {
   color: inherit;
@@ -37,4 +38,28 @@ input {
   color: black;
   padding: 0.7em;
   border-radius: 1.4em;
+}
+
+.bg-light-green {
+  background-color: #e5fffa;
+}
+
+.bg-light-red {
+  background-color: #ffe0e0;
+}
+
+.bg-light-yellow {
+  background-color: #ffe8ac;
+}
+
+.bg-accent-green {
+  border-color: #97efe0;
+}
+
+.bg-accent-red {
+  border-color: #ff9999;
+}
+
+.bg-accent-yellow {
+  border-color: #ffc01f;
 }

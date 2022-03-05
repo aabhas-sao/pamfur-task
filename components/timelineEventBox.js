@@ -3,9 +3,9 @@ import Image from 'next/image'
 import zoomIcon from '../public/zoom.png'
 import CircleAvatarWrapper from './ui/circleAvatarWrapper'
 
-const TimelineEventBox = ({ title, color, meetingId }) => {
+const TimelineEventBox = ({ title, color, accent, meetingId }) => {
   return (
-    <div className={`w-100 h-24 ${color} p-2 rounded-xl m-2 overflow-auto`}>
+    <div className={`w-100 h-24 ${color} ${accent} border-l-4 p-2 rounded-xl m-2 overflow-hidden`}>
       <h2>{title}</h2>
       <CircleAvatarWrapper />
       <div className='flex flex-row items-center'>
