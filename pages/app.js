@@ -6,22 +6,38 @@ import NewEvent from '../components/newEvent'
 import Timeline from '../components/timeline/timeline'
 import UpcomingEventBox from '../components/upcomingEventBox'
 import { iconSize } from '../constants'
-// import '../node_modules/react-calendar/dist/Calendar.css'
+import weekData from '../data/weekDays.json'
 
 const App = () => {
   const [showNewEvent, setShowNewEvent] = useState(false);
+
   return (
     <div className='h-screen'>
-      <div>
-        <div>
+      <div className='flex flex-row justify-between text-white p-4'>
+        <div className='flex flex-row text-xl items-center'>
           <ChevronLeftIcon height={iconSize} width={iconSize} />
+          <p className='ml-2'>2021
+            September</p>
+
         </div>
+        <div className='bg-gray-300 w-8 h-8 rounded-full'></div>
       </div>
-      <div className=' flex justify-center bg-gray-800'>
-        <Calendar view='month' showDoubleView={true} />
+
+      <div className='w-screen mt-6 flex justify-evenly bg-gray-800 font-serif'>
+        {
+          weekData.map((day, id) => (
+            <div key={id} className='flex flex-col text-white items-center'>
+              <p>{day.day}</p>
+              <p>{day.date}</p>
+            </div>
+          ))
+        }
       </div>
-      {showNewEvent ? <NewEvent /> : <></>}
-      <div className='fixed h-80vh w-screen bottom-0'>
+      {/* <div className='mt-6 flex justify-center bg-gray-800'>
+        <Calendar view='month'  showDoubleView={true} />
+      </div> */}
+      {/* {showNewEvent ? <NewEvent /> : <></>} */}
+      {/* <div className='fixed h-80vh w-screen bottom-0'>
         <div className='rounded-t-lg flex flex-col bg-white'>
           <h2 className='mt-8 font-serif ml-3 text-xl'>Upcoming Events (3)</h2>
           <div className='flex flex-row overflow-x-scroll'>
@@ -35,7 +51,7 @@ const App = () => {
           </div>
           <Timeline />
         </div>
-      </div>
+      </div> */}
       <button
         onClick={() => { setShowNewEvent(!showNewEvent) }}
         className='bg-red-400 w-12 h-12 rounded-full text-3xl fixed right-4 bottom-4 text-white'>
