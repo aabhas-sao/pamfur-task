@@ -30,12 +30,16 @@ const App = () => {
         ? <div className='mt-6 flex justify-center bg-gray-800'>
           <Calendar view='month' showDoubleView={true} />
         </div>
-        : <div className='w-screen mt-6 flex justify-evenly bg-gray-800 font-serif'>
+        : <div className='w-screen mt-3 flex justify-evenly bg-gray-800 font-serif'>
           {
             weekData.map((day, id) => (
-              <div key={id} className='flex flex-col text-white items-center'>
-                <p>{day.day}</p>
-                <p >{day.date}</p>
+              <div key={id} className='flex flex-col text-white items-center justify-center'>
+                {(day.date == 21)
+                  ? <div className='highlight'><p>{day.day}</p>
+                    <p>{day.date}</p></div>
+                  : <><p>{day.day}</p>
+                    <p >{day.date}</p></>
+                }
               </div>
             ))
           }
@@ -63,7 +67,7 @@ const App = () => {
         className='bg-red-400 w-12 h-12 rounded-full text-3xl fixed right-4 bottom-4 text-white'>
         +
       </button>
-    </div>
+    </div >
   )
 }
 
