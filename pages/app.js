@@ -10,11 +10,18 @@ import weekData from '../data/weekDays.json'
 import CircleAvatorWrapper from '../components/ui/circleAvatarWrapper'
 import Image from 'next/image'
 import profilePic from '../public/profile.jpeg';
+import { AnimatePresence, motion } from 'framer-motion'
 
 const App = () => {
   const [showNewEvent, setShowNewEvent] = useState(false);
   const [showCalendar, setShowCalendar] = useState(false);
 
+  const backdrop = {
+    "visible": { opacity: 1 },
+    "hidden": {
+      opacity: 0
+    }
+  }
 
 
   return (
@@ -50,21 +57,37 @@ const App = () => {
         </div>
       }
 
+      <AnimatePresence exitBeforeEnter>
+        {showNewEvent && <motion.div
+          className='backdrop'
+          variants={backdrop}
+          exit="hidden"
+          animate="visible"
+        >
+          {showNewEvent && <NewEvent showNewEvent={showNewEvent} setShowNewEvent={setShowNewEvent} />}
+        </motion.div>}
+      </AnimatePresence>
 
-      {showNewEvent ? <NewEvent showNewEvent={showNewEvent} setShowNewEvent={setShowNewEvent} /> : <></>}
-      <div className='fixed h-80vh w-screen bottom-0'>
-        <div className='rounded-t-lg flex flex-col bg-white'>
-          <span onClick={() => { setShowCalendar(!showCalendar) }} className='mt-2 mx-auto'>{showCalendar ? <ChevronUpIcon width={iconSize} height={iconSize} /> : <ChevronDownIcon width={iconSize} height={iconSize} />} </span>
-          <h2 className='mt-8 font-serif ml-3 text-xl'>Upcoming Events (3)</h2>
+      <AnimatePresence exitBeforeEnter>
+        <motion.div
+          className='fixed h-80vh w-screen bottom-0'
+          initial={{ y: "100vh" }}
+          animate={{ y: 0 }}
+          transition={{ type: 'tween', duration: 2 }``}
+        >
+          <div className='rounded-t-lg flex flex-col bg-white'>
+            <span onClick={() => { setShowCalendar(!showCalendar) }} className='mt-2 mx-auto'>{showCalendar ? <ChevronUpIcon width={iconSize} height={iconSize} /> : <ChevronDownIcon width={iconSize} height={iconSize} />} </span>
+            <h2 className='mt-8 font-serif ml-3 text-xl'>Upcoming Events (3)</h2>
 
-          <div className='flex flex-row overflow-x-scroll'>
-            <UpcomingEventBox title={"Design Scrum"} time={"11: 45 AM"} duration={"45 min"} color="bg-light-red" accent={"bg-accent-red"} />
-            <UpcomingEventBox title={"Q2 Planning"} time={"11: 45 AM"} duration={"45 min"} color="bg-light-yellow" accent={"bg-accent-yellow"} />
-            <UpcomingEventBox title={"Coldplay Concert"} time={"11: 45 AM"} duration={"45 min"} color="bg-light-green" accent={"bg-accent-green"} />
+            <div className='flex flex-row overflow-x-scroll'>
+              <UpcomingEventBox title={"Design Scrum"} time={"11: 45 AM"} duration={"45 min"} color="bg-light-red" accent={"bg-accent-red"} />
+              <UpcomingEventBox title={"Q2 Planning"} time={"11: 45 AM"} duration={"45 min"} color="bg-light-yellow" accent={"bg-accent-yellow"} />
+              <UpcomingEventBox title={"Coldplay Concert"} time={"11: 45 AM"} duration={"45 min"} color="bg-light-green" accent={"bg-accent-green"} />
+            </div>
+            {showCalendar ? <></> : <Timeline />}
           </div>
-          {showCalendar ? <></> : <Timeline />}
-        </div>
-      </div>
+        </motion.div>
+      </AnimatePresence>
 
       <button
         onClick={() => { setShowNewEvent(!showNewEvent) }}

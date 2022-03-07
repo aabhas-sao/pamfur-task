@@ -18,6 +18,6 @@ export default function Index() {
 
       <footer className={styles.footer}>
       </footer>
-    </div>
+    </div >
   )
 }
