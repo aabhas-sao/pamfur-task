@@ -17,9 +17,10 @@ const App = () => {
   const [showCalendar, setShowCalendar] = useState(false);
 
   const backdrop = {
-    "visible": { opacity: 1 },
-    "hidden": {
-      opacity: 0
+    "open": { opacity: 1, y: "100vh" },
+    "close": {
+      opacity: 0,
+      y: 100
     }
   }
 
@@ -71,9 +72,7 @@ const App = () => {
       <AnimatePresence exitBeforeEnter>
         <motion.div
           className='fixed h-80vh w-screen bottom-0'
-          initial={{ y: "100vh" }}
-          animate={{ y: 0 }}
-          transition={{ type: 'tween', duration: 2 }``}
+          animate={showCalendar ? "open" : "close"}
         >
           <div className='rounded-t-lg flex flex-col bg-white'>
             <span onClick={() => { setShowCalendar(!showCalendar) }} className='mt-2 mx-auto'>{showCalendar ? <ChevronUpIcon width={iconSize} height={iconSize} /> : <ChevronDownIcon width={iconSize} height={iconSize} />} </span>
